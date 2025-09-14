@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>주문 조회</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 8px 16px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <h2>주문 조회</h2>
+
+    <form method="POST">
+        <input type="number" name="order" placeholder="주문 번호" value="{{ order_number }}">
+        <button type="submit">조회</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>주문번호</th>
+                <th>고객번호</th>
+                <th>주문날짜</th>
+                <th>배송날짜</th>
+                <th>상태</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if orders %}
+                {% for o in orders %}
+                <tr>
+                    <td>{{ o.주문번호 }}</td>
+                    <td>{{ o.고객번호 }}</td>
+                    <td>{{ o.주문날짜 }}</td>
+                    <td>{{ o.배송날짜 }}</td>
+                    <td>{{ o.상태 }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5" style="text-align:center;">조회된 주문이 없습니다.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</body>
+</html>
