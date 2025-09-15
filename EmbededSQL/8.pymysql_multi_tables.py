@@ -2,7 +2,7 @@ from pymysql_connection import get_connection
 
 cursor1 = get_connection().cursor()
 
-sql = "SELECT 고객번호, 고객명, 이메일 FROM 고객 LIMIT 5"
+sql = "SELECT 고객번호, 고객명, 이메일 FROM 고객 LIMIT 2"
 cursor1.execute(sql)
 result1 = cursor1.fetchall()
 print("첫번째 fetch() 결과 : \n", result1)
@@ -14,7 +14,7 @@ cursor2 = get_connection().cursor()
 # result2 = cursor2.fetchall()
 sql = "SELECT 직원번호, 이름, 직책 FROM 직원"
 cursor2.execute(sql)
-result2 = cursor2.fetchmany(5)
+result2 = cursor2.fetchmany(3)
 print("두번째 fetch() 결과 : \n", result2)
 
 

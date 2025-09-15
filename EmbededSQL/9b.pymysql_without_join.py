@@ -14,6 +14,6 @@ for record1 in result1 :
     sql = "SELECT 직원번호, 이름 FROM 직원 WHERE 직원번호 = %s"
     cursor2.execute(sql, (record1['담당영업']))
     result2 = cursor2.fetchall()
-
+    print ("----------------- ", record1)
     for record2 in result2 :
         print (record1, record2)

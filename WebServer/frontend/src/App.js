@@ -5,7 +5,12 @@ function App() {
   const [orders, setOrders] = useState([]);
 
   const handleSearch = async () => {
+    // Development Mode
     const res = await fetch(`http://127.0.0.1:5000/search?order=${order}`);
+    
+    // Production Mode
+    // const res = await fetch(`/search?order=${order}`)
+
     const data = await res.json();
     setOrders(data);
   };
