@@ -19,22 +19,27 @@ with connection:
         sql = "SELECT `id`, `password` FROM `users`"
         cursor.execute(sql)
         print (f"후 ({cursor.rowcount})")
+        input()
 
         print (f"1. Row number 값 : fetch 실행 전 ({cursor.rownumber})", end=" ==> ")
         result = cursor.fetchmany(3)
         print (f"후 ({cursor.rownumber}), 결과 : {result}")
+        input()
         
         print (f"2. Row number 값 : fetch 실행 전 ({cursor.rownumber})", end=" ==> ")
         result = cursor.fetchmany(2)
         print (f"후 ({cursor.rownumber}), 결과 : {result}")
+        input()
 
         print (f"3. Row number 값 : fetch 실행 전 ({cursor.rownumber})", end=" ==> ")
         result = cursor.fetchmany(-2)
         print (f"후 ({cursor.rownumber}), 결과 : {result}")
+        input()
 
         print (f"4. Row number 값 : fetch 실행 전 ({cursor.rownumber})", end=" ==> ")
         result = cursor.fetchmany(1)
         print (f"후 ({cursor.rownumber}), 결과 : {result}")
+        input()
 
         print (f"5. Row number 값 : fetch 실행 전 ({cursor.rownumber})", end=" ==> ")
         result = cursor.fetchmany(3)

@@ -14,9 +14,9 @@ with connection:
         # Read a single record
         sql = "SELECT `id`, `password` FROM `users` WHERE `email`=%s"
         cursor.execute(sql, ('webmaster@python.org',))
-        result = cursor.fetchone()
+        result = cursor.fetchmany(5)
         print(result)
-
+        print(result[1]['id'])
 
 #Connect to the database (Cursor : 결과를 튜플 type으로 넘겨 줌)
 connection = pymysql.connect(host='localhost',
@@ -32,5 +32,6 @@ with connection:
         # Read a single record
         sql = "SELECT `id`, `password` FROM `users` WHERE `email`=%s"
         cursor.execute(sql, ('webmaster@python.org',))
-        result = cursor.fetchone()
+        result = cursor.fetchmany(5)
         print(result)
+        print(result[1][0])
